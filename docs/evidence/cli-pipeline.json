@@ -1,0 +1,43 @@
+{
+  "surface": "independent CLI, not DSH",
+  "dataset_rows": 8,
+  "dataset_seconds": 23.620022675736962,
+  "training_experiment_created": false,
+  "events": [
+    {
+      "stage": "train",
+      "argv": [
+        "<PYTHON>",
+        "<B>/train_sovits.py",
+        "--stage",
+        "list",
+        "--exp",
+        "dsh_smoke_cli",
+        "--trainset",
+        "<A_EXPORT>"
+      ],
+      "cwd": "<WORK>",
+      "started": 1792471252.590444,
+      "state": "passed",
+      "returncode": 0,
+      "finished": 1792471252.909997
+    },
+    {
+      "stage": "report",
+      "argv": [
+        "<PYTHON>",
+        "<B>/make_dataset_report.py",
+        "--new",
+        "<WORK>/_full/out/ts/train.list",
+        "--out",
+        "<WORK>/out/dataset-report.html"
+      ],
+      "cwd": "<WORK>",
+      "started": 1792471252.9109983,
+      "state": "passed",
+      "returncode": 0,
+      "finished": 1792471253.5311291
+    }
+  ],
+  "scope": "A export compatibility smoke test, not a rebuilt full-episode dataset"
+}

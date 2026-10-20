@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-20",
+  "surface": "independent CLI, not DSH",
+  "returncode": 0,
+  "elapsed": 22.969954252243042,
+  "gpu_precondition": "nvidia-smi memory.used <= 256 MiB; observed 0 MiB before start",
+  "synthesis": {
+    "text": "今日は新しい一日が始まります。",
+    "lang": "ja",
+    "sample_rate": 32000,
+    "samples": 110720,
+    "duration": 3.46,
+    "seed": 7,
+    "output_sha256": "989b86e488035d0cd69cf21cdc1143a3c24cd673bc0822ef3d7b20d787f188ed",
+    "gpt_sha256": "49b276b3dd6ed15526b4a842add2d6a94d053119720382ccaa50620afd5d72eb",
+    "sovits_sha256": "b9bff369b5f50ca5aa1b419cc1e9f27f3cbcd885ae84143d887bf9a453bdd1b0",
+    "reference_sha256": "b4e757f93f94e02f9e2e62026d732ba461473fd79a130f55cf3c5afa9dd3978d",
+    "reference_duration": 5.34,
+    "upstream_weight_selection_restored": true,
+    "torch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "device": "cuda",
+    "claim": "technical synthesis smoke test; listening and transcription still required"
+  },
+  "asr_check": {
+    "target": "今日は新しい一日が始まります。",
+    "transcript": "今日は新しい一日が始まります",
+    "forced_language": "ja",
+    "normalized_character_error_rate": 0.0,
+    "samples": 110720,
+    "sample_rate": 32000,
+    "peak": 0.235443115234375,
+    "rms": 0.0335380078079213,
+    "finite": true,
+    "asr_device": "cpu",
+    "elapsed": 12.67229151725769,
+    "limitation": "One forced-language ASR check; no blind listening or speaker-quality validation"
+  }
+}
