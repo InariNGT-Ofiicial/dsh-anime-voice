@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 
 
@@ -49,12 +50,18 @@ def main():
         setattr(a, field, p)
     out = a.out.resolve()
     if out.exists() or out.with_suffix('.json').exists(): ap.error('output exists; choose a fresh --out')
+    # Some portable runtimes import torch during Python startup. Hide CUDA before
+    # that initialization, and also set the upstream-specific override variable.
+    if a.device == 'cpu' and os.environ.get('ANIME_CPU_BOOTSTRAPPED') != '1':
+        env = dict(os.environ, CUDA_VISIBLE_DEVICES='-1', _CUDA_VISIBLE_DEVICES='-1',
+                   is_half='False', ANIME_CPU_BOOTSTRAPPED='1')
+        raise SystemExit(subprocess.call([sys.executable, *sys.argv], env=env))
     import soundfile as sf
     duration = sf.info(a.ref).duration
     if not 3 <= duration <= 10: ap.error('reference must be 3–10 seconds')
     os.environ.update(version='v2', gpt_path=str(a.gpt), sovits_path=str(a.sovits))
     if a.device == 'cpu':
-        os.environ.update(CUDA_VISIBLE_DEVICES='', is_half='False')
+        os.environ.update(CUDA_VISIBLE_DEVICES='-1', _CUDA_VISIBLE_DEVICES='-1', is_half='False')
     sys.path.insert(0, str(a.root))
     os.chdir(a.root)
     import random

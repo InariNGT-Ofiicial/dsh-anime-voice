@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "surface": "DSH desktop 0.2.1-rc.2",
+  "model": "DeepSeek-V4.1-Flash High",
+  "permission_mode": "workspace-write",
+  "raw_session_sha256": "fde87ad3557c3930936ce55b63ee112b169245b5ea0a0cc884cf603366879a1a",
+  "sanitization": "Only selected tool names, IDs and normalized ACL errors; no raw conversation, paths, media or credentials",
+  "events": [
+    {
+      "event": "tool/call",
+      "seq": 21,
+      "call_id": "call_00_ET_eAsd2RAc8p0fHntI9s9w0677",
+      "tool": "read",
+      "file": "REQUEST.local.md"
+    },
+    {
+      "event": "tool/call",
+      "seq": 23,
+      "call_id": "call_01_ET_QBopmUnci9WIFZShVNTK6389",
+      "tool": "skill",
+      "skill": "anime-voice-line-extractor"
+    },
+    {
+      "event": "tool/result",
+      "seq": 24,
+      "call_id": "call_01_ET_QBopmUnci9WIFZShVNTK6389",
+      "skill_loaded": true
+    },
+    {
+      "event": "tool/call",
+      "seq": 29,
+      "call_id": "call_00_QPbttlJgJcStHK1BsBBd0679",
+      "tool": "skill",
+      "skill": "anime-voice-clone-training"
+    },
+    {
+      "event": "tool/result",
+      "seq": 30,
+      "call_id": "call_00_QPbttlJgJcStHK1BsBBd0679",
+      "skill_loaded": true
+    },
+    {
+      "event": "tool/call",
+      "seq": 31,
+      "call_id": "call_01_w22Kfh4Tln0KcZxjyM1e1298",
+      "tool": "read",
+      "file": "case.local.json"
+    },
+    {
+      "event": "tool/result",
+      "seq": 43,
+      "call_id": "call_01_vqgOWW6NiesIEAmpN0Vf6974",
+      "error": "SetNamedSecurityInfoW failed (Win32 5): grantWrite(<WORK>)",
+      "plugin_process_started": false
+    },
+    {
+      "event": "tool/call",
+      "seq": 48,
+      "call_id": "call_00_fLI6VupDcCJQHrS5ltAn2052",
+      "tool": "pwsh",
+      "command": "Get-Location"
+    },
+    {
+      "event": "tool/result",
+      "seq": 51,
+      "call_id": "call_00_fLI6VupDcCJQHrS5ltAn2052",
+      "error": "SetNamedSecurityInfoW failed (Win32 5): grantWrite(<WORK>)",
+      "plugin_process_started": false
+    }
+  ],
+  "outcome": "skills_loaded_shell_blocked_before_plugin_execution"
+}

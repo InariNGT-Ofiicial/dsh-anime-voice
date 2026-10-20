@@ -1,0 +1,33 @@
+{
+  "files": {
+    "skills/anime-voice-clone-training/scripts/asr_full.py": "f87117bba68876adcb715f71c6fc65f5e0dde37b6c38324d610aafdbcac0888f",
+    "skills/anime-voice-clone-training/scripts/asr_full2.py": "6306319d2b8690a94ddad853834b1eaef97758dc1881d1bec3caccd2b4a6f9d3",
+    "skills/anime-voice-clone-training/scripts/audio_metrics.py": "85283264815665b2251ebd036537f096c7bd8b2068f67e8cc59cbbd4b44a4bc0",
+    "skills/anime-voice-clone-training/scripts/filter_speaker.py": "7a8b79dfa3acc994cff449863392b8c134bf778a326e48523d5b4ac488624c2d",
+    "skills/anime-voice-clone-training/scripts/infer_tts.py": "0e5145f7023f055a4305bee6c83d269cb92ad977e148c5ca14fb06c0e286049a",
+    "skills/anime-voice-clone-training/scripts/make_dataset_report.py": "01e263aaa69c9c856381f6b0fe1d0825f5895d4d5d86dc85473512a206014d01",
+    "skills/anime-voice-clone-training/scripts/run_pipeline.py": "7f592172d03a46303c66c0efed90613575c54c2e14faab24c93cf6cbcb1c52f8",
+    "skills/anime-voice-clone-training/scripts/split_full.py": "7bb42c55557eec7214b391fef73c3b81a8dcf48a98e8f4383a62f1bde4501af8",
+    "skills/anime-voice-clone-training/scripts/train_sovits.py": "d03893075fb864c880ec190f674ef43fb0f09ed069189026e5b7e8464e6c1d6e",
+    "skills/anime-voice-clone-training/SKILL.md": "8d9bd9d0273d702a1ba2bc66a7726a2a2c0f8fc4decbf18d6e7134ed3bbea0d0",
+    "skills/anime-voice-line-extractor/scripts/anchor_speakers.py": "cd1fabdf7e10a89d402e6d7042a83af1a7745be386da4c45e1185d97577d13b1",
+    "skills/anime-voice-line-extractor/scripts/anime_lines.py": "b9bfe3362e84602e22874bb4c2a38baf18388d46723611ccc61abd73cf69ada1",
+    "skills/anime-voice-line-extractor/scripts/asr_probe.py": "717464719cc7d65042fdf16eff4a136cad2229262165ba0efab1b9859b1b175f",
+    "skills/anime-voice-line-extractor/scripts/asr_regress.py": "b8f8f1130fe386e27f7be66799135175dce47d23eb9d81c0352d342130287465",
+    "skills/anime-voice-line-extractor/scripts/damage_check.py": "94e9ba5e587bfb7321e815cbb2eb79e69147d7923ea8ae5903b34704ecc2199c",
+    "skills/anime-voice-line-extractor/scripts/dry_vocals.py": "bcd2cde74f00a35f5c6005dd6ee586a3f4efccd8df37c36c0923dcb13e34b6ac",
+    "skills/anime-voice-line-extractor/scripts/export_trainset.py": "1b5a4bc457c715aa4c457edcd694c3e712bbaddfaec19240608c2491eb9397c2",
+    "skills/anime-voice-line-extractor/scripts/gen_cut_page.py": "edc2943a72b767c3fee0a65858daf66358d25a63e19ce93ccb663733840d5c7c",
+    "skills/anime-voice-line-extractor/scripts/gen_preview.py": "1231428fe1a85a887cfa5978c3bf12a78fbab67e88c8294b563c9ee68930fa3f",
+    "skills/anime-voice-line-extractor/scripts/gen_preview_multi.py": "3543014f3db57503e3a71e4ec3bf1d4635b7d41227158ef2355b490f5ef561a4",
+    "skills/anime-voice-line-extractor/scripts/gen_train_page.py": "a50c2458b04f7355b66278bda68e1458a273b0aeb27a17499dc22c3ecf062c9a",
+    "skills/anime-voice-line-extractor/scripts/make_sep_packs.py": "f9f6a321b21e7ad2a863f4d40de36f056ff12f8e641862af4546a29f47e012e4",
+    "skills/anime-voice-line-extractor/scripts/mark_review.py": "7f7ee2ad139410ae7f38411d27b4fbf090e0b18f0cbda90422c75bbe524f5e51",
+    "skills/anime-voice-line-extractor/scripts/merge_trainset.py": "bf0f9a82ca652ee67e5363d1754f73494ce5481ca240c321c35a607f7d36a6f7",
+    "skills/anime-voice-line-extractor/scripts/pick_damaged.py": "e4a2dc566712e619f1b95bf3a656e900463c944caa988f4190eb092be8a52f2e",
+    "skills/anime-voice-line-extractor/scripts/profile_episode.py": "f9b05584239a343ba2b0a959543d703a5ea06583f11c502a296c2e0470bb80b6",
+    "skills/anime-voice-line-extractor/scripts/stereo_probe.py": "f8890a95059c3971680f6b92fde10a27af8b66fef134a3079a78319bcfe8bb20",
+    "skills/anime-voice-line-extractor/SKILL.md": "3a55b14ecdfd47deb33de4af88fd25df295f87543145d25d0667830dd8b4ff50"
+  },
+  "dsh_app_asar_sha256": "47874618bf5b3011fcaac10cd4c85f69da333e70d4f99b921207c78d0999512a"
+}

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-20",
+  "surface": "independent CLI, not DSH",
+  "returncode": 0,
+  "elapsed": 67.88752818107605,
+  "synthesis": {
+    "text": "今日は新しい一日が始まります。",
+    "lang": "ja",
+    "sample_rate": 32000,
+    "samples": 109440,
+    "duration": 3.42,
+    "seed": 7,
+    "output_sha256": "76b792071c65970d85e575eeb3ee34e25c92b17bd00c5eb09fef4d27d39abd1f",
+    "gpt_sha256": "49b276b3dd6ed15526b4a842add2d6a94d053119720382ccaa50620afd5d72eb",
+    "sovits_sha256": "b9bff369b5f50ca5aa1b419cc1e9f27f3cbcd885ae84143d887bf9a453bdd1b0",
+    "reference_sha256": "b4e757f93f94e02f9e2e62026d732ba461473fd79a130f55cf3c5afa9dd3978d",
+    "reference_duration": 5.34,
+    "upstream_weight_selection_restored": true,
+    "torch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "device": "cpu",
+    "claim": "technical synthesis smoke test; listening and transcription still required"
+  },
+  "asr_check": {
+    "target": "今日は新しい一日が始まります。",
+    "transcript": "今日は新しい一日が始まります",
+    "forced_language": "ja",
+    "normalized_character_error_rate": 0.0,
+    "samples": 109440,
+    "sample_rate": 32000,
+    "peak": 0.236114501953125,
+    "rms": 0.03300441720926082,
+    "finite": true,
+    "asr_device": "cpu",
+    "elapsed": 13.302324056625366,
+    "limitation": "One forced-language ASR check; no blind listening or speaker-quality validation"
+  },
+  "attempt1_error": "AssertionError: Invalid device id",
+  "attempt2": "success after pre-start CUDA masking"
+}
