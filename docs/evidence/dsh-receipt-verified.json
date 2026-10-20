@@ -1,0 +1,292 @@
+{
+  "outcome": "representative_host_chain_passed_with_environment_conditions",
+  "receipt_sha256": "ba97f94390d754136e82c944549505e51e86d798bc02d430f917c46e5135cf33",
+  "session_snapshot_sha256": "a45851aefb898ee14af1b11fbbbc96293e419f40d285bf13bca1235d9a2162bf",
+  "checked_runs": [
+    {
+      "name": "step1-export",
+      "host_call_id": "call_00_qcQAweZ4njMjFKf6vT8c0201",
+      "host_call_seq": 214,
+      "host_result_seq": 217,
+      "exit_code": 0,
+      "log_sha256": "423b83c7343082a400b1b7b112738600226c7fa5a765a4ed0321af97ffdd5425",
+      "argv": [
+        "<PYTHON>",
+        "<A>/export_trainset.py",
+        "<INPUT>",
+        "--src",
+        "<SOURCE_WITH_WORDS>",
+        "--out",
+        "<A_EXPORT>",
+        "--lang",
+        "ja",
+        "--min-dur",
+        "1.5"
+      ],
+      "started": "2026-10-20T12:54:58+0800",
+      "duration_s": 0.68
+    },
+    {
+      "name": "step2a-check-kurumi_v3",
+      "host_call_id": "call_00_cI50zT2otnF6eZ1wqaIp0432",
+      "host_call_seq": 236,
+      "host_result_seq": 239,
+      "exit_code": 0,
+      "log_sha256": "71ac97fbbbfba0747db9c90c669940f743cbbda5eb5eae95b7f72694aaef1466",
+      "argv": [
+        "<PYTHON>",
+        "<B>/train_sovits.py",
+        "--root",
+        "<GSV_ROOT>",
+        "--python",
+        "<PYTHON>",
+        "--stage",
+        "check",
+        "--exp",
+        "kurumi_v3",
+        "--trainset",
+        "<NEW_TRAINSET>"
+      ],
+      "started": "2026-10-20T12:55:08+0800",
+      "duration_s": 1.81
+    },
+    {
+      "name": "step2b-list-dsh_smoke_v1",
+      "host_call_id": "call_00_HMAnp4QRG1BXeh2ENkJG1981",
+      "host_call_seq": 244,
+      "host_result_seq": 247,
+      "exit_code": 0,
+      "log_sha256": "a734257ece634e64bb443fc2e51cf8be498ae9792a998a2d711faab5de9cbcbf",
+      "argv": [
+        "<PYTHON>",
+        "<B>/train_sovits.py",
+        "--root",
+        "<GSV_ROOT>",
+        "--python",
+        "<PYTHON>",
+        "--stage",
+        "list",
+        "--exp",
+        "dsh_smoke_v1",
+        "--trainset",
+        "<A_EXPORT>"
+      ],
+      "started": "2026-10-20T12:55:13+0800",
+      "duration_s": 0.33
+    },
+    {
+      "name": "step3-report",
+      "host_call_id": "call_00_lnOVe6RysHtlcmTPZlCM8023",
+      "host_call_seq": 260,
+      "host_result_seq": 263,
+      "exit_code": 0,
+      "log_sha256": "6c3c41c072c31c0b10133fdabfcbfbd35d64ae20a73bbdd81285635e91a34d36",
+      "argv": [
+        "<PYTHON>",
+        "<B>/run_pipeline.py",
+        "--work",
+        "<REPORT_WORK>",
+        "--stages",
+        "report",
+        "--python",
+        "<PYTHON>"
+      ],
+      "started": "2026-10-20T12:55:23+0800",
+      "duration_s": 0.74
+    },
+    {
+      "name": "step4a-infer-cpu",
+      "host_call_id": "call_00_ET_IyN2vx9bTs1SNW76aARQ3052",
+      "host_call_seq": 284,
+      "host_result_seq": 287,
+      "exit_code": 1,
+      "log_sha256": "da60f54664cd678ef2f96a4cef466a80c7db6415502fd618cc1f7b67b72e0b8d",
+      "argv": [
+        "<PYTHON>",
+        "<B>/infer_tts.py",
+        "--root",
+        "<GSV_ROOT>",
+        "--sovits",
+        "<SOVITS_WEIGHT>",
+        "--gpt",
+        "<GPT_WEIGHT>",
+        "--ref",
+        "<REFERENCE_WAV>",
+        "--prompt-text",
+        "<ACCURATE_REFERENCE_TRANSCRIPT>",
+        "--text",
+        "今日は新しい一日が始まります。",
+        "--lang",
+        "ja",
+        "--prompt-lang",
+        "ja",
+        "--device",
+        "cpu",
+        "--seed",
+        "7",
+        "--out",
+        "<WORK>/out/dsh-tts.wav"
+      ],
+      "started": "2026-10-20T12:55:37+0800",
+      "duration_s": 4.94
+    },
+    {
+      "name": "step4b-infer-cpu",
+      "host_call_id": "call_00_ET_xHgEO9Hc8Z76id2glyPl3141",
+      "host_call_seq": 324,
+      "host_result_seq": 327,
+      "exit_code": 0,
+      "log_sha256": "163522e3b502405e3db395bbb08fc89a77e0a318c57fdb6183e10675024c2960",
+      "argv": [
+        "<PYTHON>",
+        "<B>/infer_tts.py",
+        "--root",
+        "<GSV_ROOT>",
+        "--sovits",
+        "<SOVITS_WEIGHT>",
+        "--gpt",
+        "<GPT_WEIGHT>",
+        "--ref",
+        "<REFERENCE_WAV>",
+        "--prompt-text",
+        "<ACCURATE_REFERENCE_TRANSCRIPT>",
+        "--text",
+        "今日は新しい一日が始まります。",
+        "--lang",
+        "ja",
+        "--prompt-lang",
+        "ja",
+        "--device",
+        "cpu",
+        "--seed",
+        "7",
+        "--out",
+        "<WORK>/out/dsh-tts.wav"
+      ],
+      "started": "2026-10-20T12:55:58+0800",
+      "duration_s": 19.97,
+      "env_overrides": {
+        "NO_PROXY": "localhost,127.0.0.1"
+      }
+    },
+    {
+      "name": "step5-asr-check",
+      "host_call_id": "call_00_ET_RDBScr57q5YU8eDkftcF0233",
+      "host_call_seq": 390,
+      "host_result_seq": 393,
+      "exit_code": 0,
+      "log_sha256": "14be3c5709c670fce1eaffed2c09f7d97d51933818086a4b403a573d72aee7eb",
+      "argv": [
+        "<PYTHON>",
+        "<LOCAL_CHECK>/asr_check.py"
+      ],
+      "started": "2026-10-20T12:56:52+0800",
+      "duration_s": 13.58,
+      "env_overrides": {
+        "NO_PROXY": "localhost,127.0.0.1"
+      }
+    }
+  ],
+  "export": {
+    "rows": 8,
+    "total_duration": 23.620022675736962,
+    "samples": [
+      {
+        "file": "久留美_0001.wav",
+        "lang": "ja",
+        "duration": 2.8,
+        "sha256": "f4a064c4bb57104c348fe1d663a64efb7a9dca7b5df1954a213566b6e8f3f5c1"
+      },
+      {
+        "file": "久留美_0002.wav",
+        "lang": "ja",
+        "duration": 1.96,
+        "sha256": "039f554b2ee85119c96c0ec6f96b5cbff09ce5f050fdb12857dd10d3182d00e5"
+      },
+      {
+        "file": "久留美_0003.wav",
+        "lang": "ja",
+        "duration": 4.9,
+        "sha256": "a70aeddcff786ecb683e2e69a8dda4ab256cab1190d3a985f2e0174fc15491aa"
+      },
+      {
+        "file": "久留美_0004.wav",
+        "lang": "ja",
+        "duration": 1.66,
+        "sha256": "00e9b947224847f9c9fafcaa2c14762060fe1d18112a5c655dec6c389c61fbf7"
+      },
+      {
+        "file": "久留美_0005.wav",
+        "lang": "ja",
+        "duration": 4.84,
+        "sha256": "5418584911ddb5c917821789f33e612a9a0a232d1d4bd9de2405ae62d656a237"
+      },
+      {
+        "file": "久留美_0006.wav",
+        "lang": "ja",
+        "duration": 1.8200226757369615,
+        "sha256": "ef7558abcd9b81e8a8fe6cde55bd5a9a21c2bb845df5660b6176b391f273719a"
+      },
+      {
+        "file": "久留美_0007.wav",
+        "lang": "ja",
+        "duration": 1.74,
+        "sha256": "0e493e468ff4b353e86ea1d03feaaf47a2cea445924b3a4d2f03941e63253da3"
+      },
+      {
+        "file": "久留美_0008.wav",
+        "lang": "ja",
+        "duration": 3.9,
+        "sha256": "eb821da379f9973b8dd703cea9b2e273abd253fc3dd2b38458f52945a5bc99b0"
+      }
+    ]
+  },
+  "synthesis": {
+    "sample_rate": 32000,
+    "samples": 109440,
+    "channels": 1,
+    "sample_width": 2,
+    "duration": 3.42,
+    "device": "cpu",
+    "output_sha256": "a3bd0f8b4df07890cdac43b8334230b92fce4fdb48c356de664fa035e98a5772",
+    "gpt_sha256": "49b276b3dd6ed15526b4a842add2d6a94d053119720382ccaa50620afd5d72eb",
+    "sovits_sha256": "b9bff369b5f50ca5aa1b419cc1e9f27f3cbcd885ae84143d887bf9a453bdd1b0",
+    "weight_json_restored": true
+  },
+  "report": {
+    "state": "passed",
+    "html_sha256": "99c8aa3399fc0e14561681ae2171893dd3839c3123d8e02acfce0a6021ac17ee"
+  },
+  "asr": {
+    "text": "今日は新しい一日が始まります",
+    "normalized_exact_match": true,
+    "device": "cpu",
+    "scope": "one technical transcription check"
+  },
+  "source_files_verified": 28,
+  "sandbox_mode_changes": [
+    {
+      "seq": 1,
+      "mode": "workspace-write"
+    },
+    {
+      "seq": 94,
+      "mode": "danger-full-access"
+    }
+  ],
+  "conditions": [
+    "User resolved host authorization/ACL issue; execution used danger-full-access",
+    "Inference retry passed NO_PROXY=localhost,127.0.0.1 to child only"
+  ],
+  "not_verified": [
+    "workspace-write mode after ACL repair",
+    "full-episode rebuild",
+    "feature preparation or model training",
+    "human listening/text/role review"
+  ],
+  "date": "2026-10-20",
+  "timezone": "Asia/Shanghai",
+  "source_commit": "cdd02d57c199aa200e066e09b96f22e7a5e9aba9",
+  "surface": "DSH desktop 0.2.1-rc.2; original natural-language session continued",
+  "raw_material_policy": "Original session, receipt, logs and media remain local; selected event IDs, hashes and normalized command arguments only"
+}

@@ -79,3 +79,16 @@ $env:GSV_TRAINSET = "$W/_full/out/ts"
 在新会话自然语言说明：加载两个技能、读取本地案例说明、只导出少量已有片段、用显式实验和训练集执行 check/list、输出报告、在 GPU 空闲时用已有检查点生成一句新台词。保留宿主的技能读取、工具命令、退出码、产物哈希和状态记录。不要把独立 CLI 的成功记成 DSH 成功。
 
 GPU 忙时先做 CPU 验证，不停止其它任务。不为冒烟测试重新训练全量模型。详细已测项、失败项、未测项见 `validation.md`。
+
+## 本轮宿主环境注意事项
+
+此次 DSH 宿主先遇到 `grantWrite` 的 Windows ACL 授权错误，由用户在 DSH 中处理后继续。本轮成功步骤运行于 `danger-full-access` 模式，`workspace-write` 模式的恢复效果仍需单独验证。技能自身不应自动修改目录 ACL 或宿主安全设置。
+
+此次 DSH 继承的 `NO_PROXY` IPv6 项触发上游 Gradio/httpx 的 `Invalid port: ':1]'`，影响发生在推理模块导入时。已验证的临时办法是在运行该本地推理子进程时传入 `NO_PROXY=localhost,127.0.0.1`。例如在 Python 编排器中：
+
+```python
+child_env = dict(os.environ, NO_PROXY="localhost,127.0.0.1")
+subprocess.run(command_argv, env=child_env, check=True)
+```
+
+`command_argv` 为原推理参数列表。此办法仅用于已经观察到该错误的本地验证；保留原始错误和环境覆盖记录，勿把临时覆盖写成全局代理配置。完整带参数的脱敏命令见验证记录中的宿主回执。
