@@ -1,5 +1,7 @@
 # DSH Anime Voice
 
+兼容维护：同时支持 **DSH 0.2.1-rc.2 / rc.3**，保留旧版用法与设置。验证范围与复现见 [DSH 兼容说明](docs/DSH_COMPATIBILITY.md)。
+
 番剧台词提取与 GPT-SoVITS v2 训练/配音的两个本地技能。与 DDSP 训练、歌曲翻唱项目分别维护。
 
 2026-10-20 已核验一条真实 DSH 代表性链路：自然语言任务 → 技能加载 → 少量真实片段导出 → 数据集校验/清单 → 报告 → 已有检查点 CPU 配音。运行时使用 `danger-full-access` 授权，并调整了推理子进程的 `NO_PROXY`；受限模式、完整训练和人工听音仍待验证。见 [宿主回执与验收范围](docs/validation.md#真实-dsh-回执复核)。
