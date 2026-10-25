@@ -1,5 +1,7 @@
 # DSH Anime Voice
 
+[正式版 v0.1.0](https://github.com/InariNGT-Ofiicial/dsh-anime-voice/releases/tag/v0.1.0) · 同时支持 DSH rc.2 / rc.3。
+
 兼容维护：同时支持 **DSH 0.2.1-rc.2 / rc.3**，保留旧版用法与设置。验证范围与复现见 [DSH 兼容说明](docs/DSH_COMPATIBILITY.md)。
 
 番剧台词提取与 GPT-SoVITS v2 训练/配音的两个本地技能。与 DDSP 训练、歌曲翻唱项目分别维护。
