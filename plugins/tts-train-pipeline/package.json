@@ -1,0 +1,53 @@
+{
+  "name": "dsh-tts-train-pipeline",
+  "version": "0.2.0",
+  "private": true,
+  "description": "DSH GPT-SoVITS TTS training pipeline: turn a character corpus (with lines or ASR-labelled) into a GPT-SoVITS voice (.pth + .ckpt). The TTS counterpart of dsh-train-pipeline (which makes DDSP/SVC voices).",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "gpt-sovits",
+    "tts",
+    "voice-clone",
+    "training"
+  ],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node test/smoke.mjs",
+    "test:live": "node test/live.mjs",
+    "test:e2e": "node test/e2e.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "files": [
+    "src/*.js",
+    "py/*.py",
+    "cordis.patch.yml",
+    "cordis.dev.yml",
+    "test/*.mjs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ]
+}

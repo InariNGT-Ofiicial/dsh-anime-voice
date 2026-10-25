@@ -1,0 +1,63 @@
+# dsh-tts-train-pipeline bundle patch
+#
+# 本文件随插件包一起分发；`dsh plugin add` 之后，dsh 启动时会自动加载它。
+# 叠加顺序：dsh-base → dsh-web-app → 本 bundle patch → profile 的 cordis.patch.yml → --patch
+#
+# ★ 路径默认全留空：安装后由 src/config.js **自动发现**
+#   - gsvDir 依次尝试 DSH_GSV_ROOT 环境变量、D:/AI-Voice/02_GPT-SoVITS、常见命名
+#   - 在候选目录里找同时含 GPT_SoVITS/s2_train.py 与 webui.py 的那一层
+#   - Python 默认用 <gsvDir>/.venv/Scripts/python.exe
+#   发现不到时，运行 `tts_doctor` 会给出可直接粘的配置片段。
+#
+# 环境变量（可选）：
+#   DSH_GSV_ROOT     - GPT-SoVITS 工程根目录
+#   DSH_TTS_ROOT     - 语料/数据集工作区根目录，默认 <songRoot>/04_训练工作区
+#   DSH_COVER_ROOT   - AI-Song 根目录（与 train / cover 插件共用同一个）
+#
+# 注意：patch 会**整行替换**目标行的 config，故此处列出本插件所需的全部键。
+- insert:
+    - id: tts-train-pipeline
+      name: 'dsh-tts-train-pipeline'
+      config:
+        # ── GPT-SoVITS 工程与 Python（外部硬依赖）──────────────────────
+        gsvDir: ''
+        gsvEnv: ''
+
+        # ── 工作区（留空 = 自动发现）──────────────────────────────────
+        songRoot: !!js process.env.DSH_COVER_ROOT ?? ''
+        workRoot: !!js process.env.DSH_TTS_ROOT ?? ''
+
+        # ── 模型版本（决定底模、s2 配置模板、权重输出目录）──────────────
+        # 可选：v1 / v2 / v2Pro / v2ProPlus / v3 / v4
+        version: 'v2ProPlus'
+
+        # ── 训练超参 ─────────────────────────────────────────────────
+        expName: 'tts-test'
+        s2BatchSize: 4
+        s2Epochs: 8
+        s2SaveEveryEpoch: 4
+        s1BatchSize: 4
+        s1Epochs: 10
+        s1SaveEveryNEpoch: 5
+        textLowLrRate: 0.4
+        gradCkpt: true
+
+        # ── 数据集默认值 ──────────────────────────────────────────────
+        # minSec 默认 2.0：galgame / 番剧单句语音中位仅约 3s，按官方建议的 3.0
+        # 卡会丢掉近一半素材（实测芳乃 630 条里 <3s 占 50%）。素材够多可调回 3.0。
+        sampleRate: 32000
+        minSec: 2.0
+        maxSec: 10.0
+        targetHours: 0.5
+        language: 'zh'
+
+        # ── ASR 回标（无台词语料）────────────────────────────────────
+        asrModel: 'large-v3'
+        asrComputeType: 'float16'
+        asrBeamSize: 5
+        asrCacheDir: ''
+
+        # ── 运行控制 ──────────────────────────────────────────────────
+        ffmpeg: ''
+        timeoutMs: 7200000
+        maxOutputChars: 6000
